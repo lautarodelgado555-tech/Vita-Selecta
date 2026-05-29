@@ -2391,10 +2391,10 @@ const s = {
   creditoNav: { position: "fixed", bottom: 0, left: 0, right: 0, textAlign: "center", fontSize: 10.5, color: C.grisL, padding: "6px 8px", background: C.card, borderTop: `1px solid ${C.borde}`, zIndex: 19, letterSpacing: 0.3 },
   creditoLink: { color: C.salviaD, textDecoration: "none", fontWeight: 600 },
   fraseDia: { background: "#f4c430", color: "#3a2f0a", textAlign: "center", padding: "7px 16px", fontSize: 12.5, fontWeight: 600, letterSpacing: 0.3, lineHeight: 1.4 },
-  header: { display: "flex", justifyContent: "flex-start", alignItems: "center", padding: "12px 20px", borderBottom: `1px solid ${C.borde}`, background: C.card, position: "sticky", top: 0, zIndex: 10 },
-  appName: { marginLeft: 18, fontFamily: SERIF, fontSize: 28, color: C.tinta, letterSpacing: 1.5 },
-  appSep: { width: 1, height: 24, background: C.borde, marginLeft: 14 },
-  appTag: { marginLeft: 14, fontSize: 13, color: C.gris, letterSpacing: 0.5 },
+  header: { display: "flex", justifyContent: "flex-start", alignItems: "center", padding: "12px 20px", background: "#2f7a23", position: "sticky", top: 0, zIndex: 10 },
+  appName: { marginLeft: 18, fontFamily: SERIF, fontSize: 28, color: "#ffffff", letterSpacing: 1.5 },
+  appSep: { width: 1, height: 24, background: "rgba(255,255,255,0.4)", marginLeft: 14 },
+  appTag: { marginLeft: 14, fontSize: 13, color: "rgba(255,255,255,0.85)", letterSpacing: 0.5 },
   instBanner: { position: "fixed", bottom: 98, left: 12, right: 12, background: C.card, border: `1px solid ${C.borde}`, borderRadius: 12, padding: "10px 12px", display: "flex", alignItems: "center", gap: 10, boxShadow: "0 4px 14px rgba(0,0,0,0.2)", zIndex: 50 },
   instBannerTxt: { fontSize: 12.5, color: C.tinta, flex: 1, lineHeight: 1.35 },
   instBannerBtn: { background: C.salvia, color: C.acentoTxt, border: "none", borderRadius: 8, padding: "7px 12px", fontSize: 12.5, fontWeight: 700, cursor: "pointer", flexShrink: 0, fontFamily: SANS },
@@ -2552,7 +2552,7 @@ const s = {
   onbOpt: { display: "flex", alignItems: "center", gap: 10, padding: "14px 16px", borderRadius: 13, border: `1.5px solid ${C.borde}`, background: C.card, color: C.tinta, fontSize: 14.5, fontWeight: 600, cursor: "pointer", fontFamily: SANS, textAlign: "left", width: "100%", flexWrap: "wrap" },
   onbOptOn: { borderColor: C.salvia, background: C.salviaBg },
   onbOptHint: { width: "100%", fontSize: 12, fontWeight: 400, color: C.gris, marginTop: 2 },
-  salirBtn: { marginLeft: "auto", background: "none", border: `1px solid ${C.borde}`, borderRadius: 9, padding: 7, color: C.grisL, cursor: "pointer", display: "flex" },
+  salirBtn: { marginLeft: "auto", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 9, padding: 7, color: "#ffffff", cursor: "pointer", display: "flex" },
   crearBtnSm: { display: "inline-flex", alignItems: "center", gap: 6, padding: "10px 18px", background: C.salvia, color: C.acentoTxt, border: "none", borderRadius: 11, fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: SANS },
 
   /* seccion suplemento */
