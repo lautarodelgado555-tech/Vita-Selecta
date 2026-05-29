@@ -1097,6 +1097,7 @@ function AppPrincipal({ usuario, onSalir, modoTema, setModoTema }) {
           </button>
         ); })}
       </nav>
+      <CreditoAppsParaVos variante="nav" />
     </div>
   );
 }
@@ -1190,6 +1191,7 @@ function PantallaRegistro({ onListo }) {
           </button>
         </div>
         <p style={s.authDemo}>Usá el mismo email con el que comprás en Vita Selecta.</p>
+        <CreditoAppsParaVos />
       </div>
     </div>
   );
@@ -1852,6 +1854,18 @@ function ComidaItem({ item, tipoComida }) {
   );
 }
 
+// Credito de Apps Para Vos (link a la web). Se usa en registro y debajo del nav.
+function CreditoAppsParaVos({ variante = "footer" }) {
+  return (
+    <div style={variante === "nav" ? s.creditoNav : s.creditoFooter}>
+      Desarrollado por{" "}
+      <a href="https://appsparavos.com.ar" target="_blank" rel="noopener noreferrer" style={s.creditoLink}>
+        Apps Para Vos
+      </a>
+    </div>
+  );
+}
+
 // Detecta si la app ya está instalada (corriendo como PWA standalone)
 function appYaInstalada() {
   if (typeof window === "undefined") return false;
@@ -2360,12 +2374,15 @@ const CSS = `
 }
 `;
 const s = {
-  app: { background: C.bg, fontFamily: SANS, color: C.tinta, minHeight: "100vh", paddingBottom: 72 },
+  app: { background: C.bg, fontFamily: SANS, color: C.tinta, minHeight: "100vh", paddingBottom: 96 },
+  creditoFooter: { textAlign: "center", fontSize: 11.5, color: C.grisL, marginTop: 18, letterSpacing: 0.3 },
+  creditoNav: { position: "fixed", bottom: 0, left: 0, right: 0, textAlign: "center", fontSize: 10.5, color: C.grisL, padding: "6px 8px", background: C.card, borderTop: `1px solid ${C.borde}`, zIndex: 19, letterSpacing: 0.3 },
+  creditoLink: { color: C.salviaD, textDecoration: "none", fontWeight: 600 },
   header: { display: "flex", justifyContent: "flex-start", alignItems: "center", padding: "12px 20px", borderBottom: `1px solid ${C.borde}`, background: C.card, position: "sticky", top: 0, zIndex: 10 },
   appName: { marginLeft: 18, fontFamily: SERIF, fontSize: 28, color: C.tinta, letterSpacing: 1.5 },
   appSep: { width: 1, height: 24, background: C.borde, marginLeft: 14 },
   appTag: { marginLeft: 14, fontSize: 13, color: C.gris, letterSpacing: 0.5 },
-  instBanner: { position: "fixed", bottom: 72, left: 12, right: 12, background: C.card, border: `1px solid ${C.borde}`, borderRadius: 12, padding: "10px 12px", display: "flex", alignItems: "center", gap: 10, boxShadow: "0 4px 14px rgba(0,0,0,0.2)", zIndex: 50 },
+  instBanner: { position: "fixed", bottom: 98, left: 12, right: 12, background: C.card, border: `1px solid ${C.borde}`, borderRadius: 12, padding: "10px 12px", display: "flex", alignItems: "center", gap: 10, boxShadow: "0 4px 14px rgba(0,0,0,0.2)", zIndex: 50 },
   instBannerTxt: { fontSize: 12.5, color: C.tinta, flex: 1, lineHeight: 1.35 },
   instBannerBtn: { background: C.salvia, color: C.acentoTxt, border: "none", borderRadius: 8, padding: "7px 12px", fontSize: 12.5, fontWeight: 700, cursor: "pointer", flexShrink: 0, fontFamily: SANS },
   instBannerX: { background: "none", border: "none", color: C.gris, cursor: "pointer", padding: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 },
@@ -2470,7 +2487,7 @@ const s = {
 
   tip: { fontSize: 12.5, color: C.gris, marginTop: 14, lineHeight: 1.5 },
 
-  bottomNav: { position: "fixed", bottom: 0, left: 0, right: 0, height: 64, background: C.card, borderTop: `1px solid ${C.borde}`, display: "flex", zIndex: 20 },
+  bottomNav: { position: "fixed", bottom: 26, left: 0, right: 0, height: 64, background: C.card, borderTop: `1px solid ${C.borde}`, display: "flex", zIndex: 20 },
   navBtn: { flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 3, background: "none", border: "none", cursor: "pointer", position: "relative", fontFamily: SANS },
   navLbl: { fontSize: 11 },
   navDot: { position: "absolute", top: 8, width: 5, height: 5, borderRadius: "50%", background: C.terra },
