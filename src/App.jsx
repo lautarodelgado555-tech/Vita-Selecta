@@ -1043,6 +1043,14 @@ function AppPrincipal({ usuario, onSalir, modoTema, setModoTema }) {
   const [tab, setTab] = useState("habitos");
   const [restricciones, setRestricciones] = useState([]);
   const [temaModal, setTemaModal] = useState(false);
+  const [instalarModal, setInstalarModal] = useState(false);
+  // Banner de instalar: solo si no esta ya instalada y el usuario no lo oculto en esta sesion
+  const [mostrarBanner, setMostrarBanner] = useState(() => {
+    if (typeof window === "undefined") return false;
+    if (appYaInstalada()) return false;
+    try { if (sessionStorage.getItem("vita_banner_oculto") === "1") return false; } catch {}
+    return true;
+  });
   const NAV = [
     { id: "habitos", label: "Habitos", icon: ListChecks },
     { id: "comida", label: "Comida", icon: Salad },
@@ -1071,6 +1079,14 @@ function AppPrincipal({ usuario, onSalir, modoTema, setModoTema }) {
       </main>
 
       {temaModal && <TemaModal modo={modoTema} onPick={(m) => { setModoTema(m); }} onClose={() => setTemaModal(false)} />}
+      {instalarModal && <InstalarModal onClose={() => setInstalarModal(false)} />}
+
+      {mostrarBanner && (
+        <InstalarBanner
+          onAbrir={() => setInstalarModal(true)}
+          onCerrar={() => { setMostrarBanner(false); try { sessionStorage.setItem("vita_banner_oculto", "1"); } catch {} }}
+        />
+      )}
 
       <nav style={s.bottomNav}>
         {NAV.map((n) => { const I = n.icon; const on = tab === n.id; return (
@@ -1823,6 +1839,90 @@ function ComidaItem({ item, tipoComida }) {
   );
 }
 
+// Detecta si la app ya está instalada (corriendo como PWA standalone)
+function appYaInstalada() {
+  if (typeof window === "undefined") return false;
+  if (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) return true;
+  if (window.navigator.standalone === true) return true; // iOS
+  return false;
+}
+
+// Detecta el dispositivo del usuario
+function detectarDispositivo() {
+  if (typeof navigator === "undefined") return "pc";
+  const ua = navigator.userAgent || "";
+  if (/iPad|iPhone|iPod/.test(ua)) return "ios";
+  if (/Android/.test(ua)) return "android";
+  return "pc";
+}
+
+// Banner discreto que invita a instalar la app
+function InstalarBanner({ onAbrir, onCerrar }) {
+  return (
+    <div style={s.instBanner}>
+      <Sparkles size={16} style={{ flexShrink: 0, color: C.salviaD }} />
+      <span style={s.instBannerTxt}>Instalá Vita Plus en tu dispositivo para un acceso más rápido</span>
+      <button style={s.instBannerBtn} onClick={onAbrir}>Ver cómo</button>
+      <button style={s.instBannerX} onClick={onCerrar} title="Ocultar"><X size={14} /></button>
+    </div>
+  );
+}
+
+// Modal con instrucciones de instalación según dispositivo
+function InstalarModal({ onClose }) {
+  const disp = detectarDispositivo();
+  const PASOS = {
+    ios: {
+      titulo: "Instalar en iPhone / iPad",
+      intro: "Necesitás abrir esta página en Safari (no funciona desde otros navegadores en iOS).",
+      pasos: [
+        "Tocá el botón Compartir (el cuadradito con la flecha hacia arriba), abajo en el centro de la pantalla.",
+        "Bajá en el menú y tocá Añadir a pantalla de inicio.",
+        "Tocá Añadir arriba a la derecha.",
+        "Listo: el ícono de Vita Plus va a aparecer en tu pantalla de inicio.",
+      ],
+    },
+    android: {
+      titulo: "Instalar en Android",
+      intro: "Te recomendamos usar Chrome para una mejor experiencia.",
+      pasos: [
+        "Tocá los tres puntos (⋮) arriba a la derecha del navegador.",
+        "Tocá Instalar app o Agregar a pantalla de inicio.",
+        "Confirmá tocando Instalar.",
+        "Listo: el ícono de Vita Plus aparece en tu pantalla principal como una app más.",
+      ],
+    },
+    pc: {
+      titulo: "Instalar en la computadora",
+      intro: "Vita Plus se puede instalar como una app de escritorio desde Chrome, Edge o Brave.",
+      pasos: [
+        "En la barra de direcciones (arriba), buscá un ícono de instalación a la derecha (suele ser una pantallita con una flecha hacia abajo).",
+        "Si no lo ves, abrí el menú del navegador (tres puntos) y buscá Instalar Vita Plus.",
+        "Hacé clic en Instalar.",
+        "Listo: Vita Plus queda como una app en tu computadora, con su propio ícono.",
+      ],
+    },
+  };
+  const info = PASOS[disp];
+  return (
+    <div style={s.modalBg} onClick={onClose}>
+      <div style={s.modal} onClick={(e) => e.stopPropagation()}>
+        <div style={s.modalHead}><b style={s.modalTitle}>{info.titulo}</b><button style={s.iconBtn} onClick={onClose}><X size={20} /></button></div>
+        <p style={s.modalSub}>{info.intro}</p>
+        <ol style={s.instLista}>
+          {info.pasos.map((p, i) => (
+            <li key={i} style={s.instPaso}>
+              <span style={s.instNum}>{i + 1}</span>
+              <span style={{ flex: 1 }}>{p}</span>
+            </li>
+          ))}
+        </ol>
+        <button style={s.instCerrar} onClick={onClose}>Entendido</button>
+      </div>
+    </div>
+  );
+}
+
 function TemaModal({ modo, onPick, onClose }) {
   const OPCIONES = [
     { id: "claro", label: "Claro", desc: "Tonos cálidos y luminosos", icon: Sun },
@@ -2252,6 +2352,14 @@ const s = {
   appName: { marginLeft: 18, fontFamily: SERIF, fontSize: 28, color: C.tinta, letterSpacing: 1.5 },
   appSep: { width: 1, height: 24, background: C.borde, marginLeft: 14 },
   appTag: { marginLeft: 14, fontSize: 13, color: C.gris, letterSpacing: 0.5 },
+  instBanner: { position: "fixed", bottom: 72, left: 12, right: 12, background: C.card, border: `1px solid ${C.borde}`, borderRadius: 12, padding: "10px 12px", display: "flex", alignItems: "center", gap: 10, boxShadow: "0 4px 14px rgba(0,0,0,0.2)", zIndex: 50 },
+  instBannerTxt: { fontSize: 12.5, color: C.tinta, flex: 1, lineHeight: 1.35 },
+  instBannerBtn: { background: C.salvia, color: C.acentoTxt, border: "none", borderRadius: 8, padding: "7px 12px", fontSize: 12.5, fontWeight: 700, cursor: "pointer", flexShrink: 0, fontFamily: SANS },
+  instBannerX: { background: "none", border: "none", color: C.gris, cursor: "pointer", padding: 4, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 },
+  instLista: { listStyle: "none", padding: 0, margin: "12px 0 0", display: "flex", flexDirection: "column", gap: 10 },
+  instPaso: { display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13.5, color: C.tinta, lineHeight: 1.45 },
+  instNum: { background: C.salvia, color: C.acentoTxt, width: 22, height: 22, borderRadius: 11, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 700, flexShrink: 0, marginTop: 1 },
+  instCerrar: { marginTop: 14, width: "100%", background: C.salvia, color: C.acentoTxt, border: "none", borderRadius: 10, padding: "10px 14px", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: SANS },
   logoImg: { height: 46, width: "auto", borderRadius: 10, display: "block" },
   main: { maxWidth: 720, margin: "0 auto", padding: "20px 16px 30px" },
 
