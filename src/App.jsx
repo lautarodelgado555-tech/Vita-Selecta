@@ -1107,12 +1107,18 @@ function PantallaRegistro({ onListo }) {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [pass2, setPass2] = useState("");
   const [error, setError] = useState("");
   const [cargando, setCargando] = useState(false);
-  const puede = modo === "login" ? (email && pass) : (nombre && email && pass);
+  const puede = modo === "login" ? (email && pass) : (nombre && email && pass && pass2);
 
   const manejar = async () => {
-    setError(""); setCargando(true);
+    setError(""); 
+    if (modo === "registro" && pass !== pass2) {
+      setError("Las contraseñas no coinciden. Revisalas.");
+      return;
+    }
+    setCargando(true);
     try {
       if (modo === "registro") {
         const { data, error } = await supabase.auth.signUp({
@@ -1163,6 +1169,13 @@ function PantallaRegistro({ onListo }) {
             <input style={s.input} type="password" placeholder="••••••••" value={pass} onChange={(e) => setPass(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter" && puede && !cargando) manejar(); }} />
           </div>
+          {modo === "registro" && (
+            <div>
+              <label style={s.lbl}>Confirmar contraseña</label>
+              <input style={s.input} type="password" placeholder="••••••••" value={pass2} onChange={(e) => setPass2(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter" && puede && !cargando) manejar(); }} />
+            </div>
+          )}
           {error && <div style={s.authError}>{error}</div>}
           <button style={{ ...s.crearBtn, opacity: (puede && !cargando) ? 1 : 0.5, marginTop: 18 }} disabled={!puede || cargando}
             onClick={manejar}>
@@ -1876,10 +1889,10 @@ function InstalarModal({ onClose }) {
       titulo: "Instalar en iPhone / iPad",
       intro: "Necesitás abrir esta página en Safari (no funciona desde otros navegadores en iOS).",
       pasos: [
-        "Tocá el botón Compartir (el cuadradito con la flecha hacia arriba), abajo en el centro de la pantalla.",
-        "Bajá en el menú y tocá Añadir a pantalla de inicio.",
+        "Buscá el botón Compartir (un cuadradito con una flecha hacia arriba). Suele estar abajo en el centro de la pantalla. Si no lo ves, tocá primero los tres puntos (•••) o el botón «aA» en la barra de direcciones.",
+        "En el menú que se abre, bajá un poco y tocá Añadir a pantalla de inicio.",
         "Tocá Añadir arriba a la derecha.",
-        "Listo: el ícono de Vita Plus va a aparecer en tu pantalla de inicio.",
+        "Listo: el ícono de Vita Plus va a aparecer en tu pantalla de inicio como una app más.",
       ],
     },
     android: {
@@ -2469,7 +2482,7 @@ const s = {
   modalSub: { fontSize: 13, color: C.gris, lineHeight: 1.5, marginBottom: 6 },
   iconBtn: { background: C.cardAlt, border: "none", borderRadius: 10, width: 34, height: 34, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: C.gris },
   lbl: { display: "block", fontSize: 12.5, fontWeight: 700, color: C.gris, textTransform: "uppercase", letterSpacing: .5, margin: "16px 0 8px" },
-  input: { width: "100%", padding: "12px 14px", border: `1.5px solid ${C.borde}`, borderRadius: 12, fontSize: 14, outline: "none", fontFamily: SANS, color: C.tinta },
+  input: { width: "100%", padding: "12px 14px", border: `1.5px solid ${C.borde}`, borderRadius: 12, fontSize: 14, outline: "none", fontFamily: SANS, color: C.tinta, background: C.card },
   iconPick: { display: "flex", gap: 8, flexWrap: "wrap" },
   iconOpt: { width: 42, height: 42, borderRadius: 12, border: `1.5px solid ${C.borde}`, background: C.cardAlt, color: C.salviaD, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" },
   segRow: { display: "flex", gap: 8 },
