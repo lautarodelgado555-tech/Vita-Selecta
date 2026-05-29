@@ -863,51 +863,143 @@ const PLANES_EJER = [
 // "duracionDias" = cuanto dura un frasco (para el aviso de recompra).
 const SUPLEMENTOS = [
   {
-    id: "maca_negra", nombre: "Maca Negra", emoji: "🌑", duracionDias: 30,
-    beneficio: "Energia, vitalidad y libido",
+    id: "maca_negra", nombre: "Maca Negra Premium", emoji: "🌑", duracionDias: 30,
+    beneficio: "Energía, vitalidad y libido",
     etapas: [
-      { dia: 7, texto: "En la primera semana suele notarse mas energia y menos cansancio." },
-      { dia: 14, texto: "Hacia las dos semanas mejora el animo y el rendimiento diario." },
-      { dia: 30, texto: "Al mes: mayor vitalidad, libido y estabilidad fisica." },
+      { dia: 7, texto: "En la primera semana suele notarse más energía y menos cansancio." },
+      { dia: 14, texto: "Hacia las dos semanas mejora el ánimo y el rendimiento diario." },
+      { dia: 30, texto: "Al mes: mayor vitalidad, libido y estabilidad física." },
     ],
-    preguntaSemanal: "¿Como venis de energia esta semana?",
+    preguntaSemanal: "¿Cómo venís de energía esta semana?",
   },
   {
-    id: "ashwagandha", nombre: "Ashwagandha", emoji: "🌿", duracionDias: 30,
-    beneficio: "Calma, manejo del estres y descanso",
+    id: "maca_triple", nombre: "Maca Triple Premium", emoji: "✨", duracionDias: 30,
+    beneficio: "Vitalidad reforzada (3 variedades de maca)",
     etapas: [
-      { dia: 7, texto: "La primera semana suele traer una sensacion de mayor calma." },
-      { dia: 14, texto: "Hacia las dos semanas, mejor manejo del estres del dia." },
-      { dia: 30, texto: "Al mes: descanso mas reparador y animo mas estable." },
+      { dia: 7, texto: "La primera semana suele notarse un empuje de energía." },
+      { dia: 14, texto: "A las dos semanas: mejor rendimiento físico y mental." },
+      { dia: 30, texto: "Al mes: vitalidad más sostenida en el día a día." },
     ],
-    preguntaSemanal: "¿Como dormiste y manejaste el estres esta semana?",
+    preguntaSemanal: "¿Cómo venís de vitalidad esta semana?",
   },
   {
-    id: "omega3", nombre: "Omega 3", emoji: "🐟", duracionDias: 30,
-    beneficio: "Recuperacion y bienestar general",
+    id: "ashwagandha", nombre: "Ashwagandha Premium", emoji: "🌿", duracionDias: 30,
+    beneficio: "Calma, manejo del estrés y descanso",
     etapas: [
-      { dia: 14, texto: "Las primeras semanas apoya la recuperacion y la concentracion." },
+      { dia: 7, texto: "La primera semana suele traer una sensación de mayor calma." },
+      { dia: 14, texto: "Hacia las dos semanas, mejor manejo del estrés del día." },
+      { dia: 30, texto: "Al mes: descanso más reparador y ánimo más estable." },
+    ],
+    preguntaSemanal: "¿Cómo dormiste y manejaste el estrés esta semana?",
+  },
+  {
+    id: "omega3", nombre: "Omega 3 Premium", emoji: "🐟", duracionDias: 30,
+    beneficio: "Recuperación y bienestar general",
+    etapas: [
+      { dia: 14, texto: "Las primeras semanas apoya la recuperación y la concentración." },
       { dia: 30, texto: "Al mes: aporte sostenido para articulaciones y bienestar general." },
     ],
-    preguntaSemanal: "¿Notas mejor recuperacion esta semana?",
+    preguntaSemanal: "¿Notás mejor recuperación esta semana?",
   },
   {
-    id: "curcuma", nombre: "Curcuma + Jengibre", emoji: "🟡", duracionDias: 30,
-    beneficio: "Digestion y antiinflamatorio",
+    id: "blend_energia", nombre: "Blend Energía", emoji: "⚡", duracionDias: 30,
+    beneficio: "Energía y enfoque diario",
+    etapas: [
+      { dia: 7, texto: "Los primeros días suele notarse más impulso por la mañana." },
+      { dia: 30, texto: "Al mes: energía más pareja a lo largo del día." },
+    ],
+    preguntaSemanal: "¿Con cuánta energía arrancaste tus días?",
+  },
+  {
+    id: "shilajit", nombre: "Shilajit (Gomitas)", emoji: "🪨", duracionDias: 30,
+    beneficio: "Vitalidad y rendimiento",
+    etapas: [
+      { dia: 14, texto: "Las primeras semanas suelen acompañar la energía diaria." },
+      { dia: 30, texto: "Al mes: mejor rendimiento físico y vitalidad sostenida." },
+    ],
+    preguntaSemanal: "¿Cómo notás tu rendimiento esta semana?",
+  },
+  {
+    id: "d3k2", nombre: "Vitamina D3 + K2", emoji: "☀️", duracionDias: 30,
+    beneficio: "Huesos, inmunidad y vitalidad",
+    etapas: [
+      { dia: 14, texto: "Las primeras semanas suman al aporte vitamínico diario." },
+      { dia: 30, texto: "Al mes: apoyo sostenido para huesos e inmunidad." },
+    ],
+    preguntaSemanal: "¿Cómo te sentiste en general esta semana?",
+  },
+  {
+    id: "sea_moss", nombre: "Multivitamínico Sea Moss", emoji: "🌊", duracionDias: 30,
+    beneficio: "Aporte multivitamínico natural",
+    etapas: [
+      { dia: 14, texto: "Las primeras semanas suman vitaminas y minerales esenciales." },
+      { dia: 30, texto: "Al mes: mejor aporte nutricional general." },
+    ],
+    preguntaSemanal: "¿Cómo te sentiste de energía y ánimo esta semana?",
+  },
+  {
+    id: "blend_relax", nombre: "Blend Relax", emoji: "🌙", duracionDias: 30,
+    beneficio: "Calma y mejor descanso",
+    etapas: [
+      { dia: 7, texto: "La primera semana suele ayudar a soltar tensión." },
+      { dia: 14, texto: "A las dos semanas: descanso más reparador." },
+      { dia: 30, texto: "Al mes: calma más estable y mejor sueño." },
+    ],
+    preguntaSemanal: "¿Cómo dormiste esta semana?",
+  },
+  {
+    id: "resveratrol", nombre: "Resveratrol Premium", emoji: "🍇", duracionDias: 30,
+    beneficio: "Antioxidante y bienestar celular",
+    etapas: [
+      { dia: 14, texto: "Las primeras semanas suman aporte antioxidante." },
+      { dia: 30, texto: "Al mes: apoyo sostenido al bienestar celular." },
+    ],
+    preguntaSemanal: "¿Cómo te sentís en general esta semana?",
+  },
+  {
+    id: "curcuma", nombre: "Cúrcuma + Jengibre", emoji: "🟡", duracionDias: 30,
+    beneficio: "Digestión y antiinflamatorio",
     etapas: [
       { dia: 7, texto: "La primera semana suele aliviar la pesadez digestiva." },
-      { dia: 30, texto: "Al mes: apoyo antiinflamatorio y mejor digestion general." },
+      { dia: 30, texto: "Al mes: apoyo antiinflamatorio y mejor digestión general." },
     ],
-    preguntaSemanal: "¿Como sentis tu digestion esta semana?",
+    preguntaSemanal: "¿Cómo sentís tu digestión esta semana?",
   },
   {
-    id: "blend_energia", nombre: "Blend Energia", emoji: "⚡", duracionDias: 30,
-    beneficio: "Energia y enfoque diario",
+    id: "multi_mujer", nombre: "Multivitamínico Mujer", emoji: "💗", duracionDias: 30,
+    beneficio: "Aporte vitamínico pensado para la mujer",
     etapas: [
-      { dia: 7, texto: "Los primeros dias suele notarse mas impulso por la manana." },
-      { dia: 30, texto: "Al mes: energia mas pareja a lo largo del dia." },
+      { dia: 14, texto: "Las primeras semanas suman aporte vitamínico esencial." },
+      { dia: 30, texto: "Al mes: mejor energía y bienestar general." },
     ],
-    preguntaSemanal: "¿Con cuanta energia arrancaste tus dias?",
+    preguntaSemanal: "¿Cómo te sentiste de energía y ánimo esta semana?",
+  },
+  {
+    id: "blend_metabolismo", nombre: "Blend Metabolismo", emoji: "🔥", duracionDias: 30,
+    beneficio: "Apoyo metabólico",
+    etapas: [
+      { dia: 14, texto: "Las primeras semanas acompañan el control metabólico." },
+      { dia: 30, texto: "Al mes: apoyo sostenido al metabolismo." },
+    ],
+    preguntaSemanal: "¿Cómo venís con tus objetivos esta semana?",
+  },
+  {
+    id: "berberina", nombre: "Berberina Premium", emoji: "🌾", duracionDias: 30,
+    beneficio: "Apoyo metabólico y digestivo",
+    etapas: [
+      { dia: 14, texto: "Las primeras semanas suman al control metabólico." },
+      { dia: 30, texto: "Al mes: apoyo sostenido al metabolismo y la digestión." },
+    ],
+    preguntaSemanal: "¿Cómo venís con tu digestión y energía esta semana?",
+  },
+  {
+    id: "liver_detox", nombre: "Liver Detox", emoji: "🫧", duracionDias: 30,
+    beneficio: "Apoyo hepático",
+    etapas: [
+      { dia: 14, texto: "Las primeras semanas suman al cuidado hepático." },
+      { dia: 30, texto: "Al mes: apoyo sostenido al hígado y la digestión." },
+    ],
+    preguntaSemanal: "¿Cómo sentís tu digestión esta semana?",
   },
 ];
 const RESP_SEMANAL = [
@@ -1020,14 +1112,17 @@ export default function App() {
   };
 
   // Guardar el suplemento elegido en el onboarding (si eligió uno)
-  const finalizarOnboarding = async (sup) => {
-    if (sup) {
+  const finalizarOnboarding = async (suples) => {
+    // suples = array de { id, inicio } (puede estar vacío si el usuario no eligió ninguno)
+    if (suples && suples.length > 0) {
       const { data: sesion } = await supabase.auth.getUser();
       const uid = sesion?.user?.id;
       if (uid) {
-        await supabase.from("suplementos_usuario").insert({
-          usuario_id: uid, suplemento_id: sup.id, inicio: sup.inicio, activo: true,
-        });
+        for (const sup of suples) {
+          await supabase.from("suplementos_usuario").insert({
+            usuario_id: uid, suplemento_id: sup.id, inicio: sup.inicio, activo: true,
+          });
+        }
       }
     }
     setFase("app");
@@ -1213,17 +1308,36 @@ function PantallaRegistro({ onListo }) {
 function Onboarding({ usuario, onListo }) {
   const [paso, setPaso] = useState(0);
   const [tomaSuple, setTomaSuple] = useState(null); // true/false
-  const [supleId, setSupleId] = useState(null);
-  const [hace, setHace] = useState(null); // "hoy" | "semana" | "mes"
+  // selecciones: array de { id, hace }
+  const [seleccion, setSeleccion] = useState([]);
+
+  const toggleSup = (id) => {
+    const ya = seleccion.find((s) => s.id === id);
+    if (ya) setSeleccion(seleccion.filter((s) => s.id !== id));
+    else setSeleccion([...seleccion, { id, hace: "hoy" }]);
+  };
+  const cambiarHace = (id, hace) => {
+    setSeleccion(seleccion.map((s) => s.id === id ? { ...s, hace } : s));
+  };
 
   const finalizar = () => {
-    if (tomaSuple && supleId) {
-      const dias = hace === "hoy" ? 0 : hace === "semana" ? 7 : 25;
-      onListo({ id: supleId, inicio: dayKey(addDays(-dias)) });
+    if (tomaSuple && seleccion.length > 0) {
+      const suples = seleccion.map((s) => {
+        const dias = s.hace === "hoy" ? 0 : s.hace === "1sem" ? 7 : s.hace === "2sem" ? 14 : s.hace === "1mes" ? 30 : 0;
+        return { id: s.id, inicio: dayKey(addDays(-dias)) };
+      });
+      onListo(suples);
     } else {
-      onListo(null);
+      onListo([]);
     }
   };
+
+  const OPC_HACE = [
+    { v: "hoy", l: "Hoy" },
+    { v: "1sem", l: "1 sem" },
+    { v: "2sem", l: "2 sem" },
+    { v: "1mes", l: "1 mes" },
+  ];
 
   return (
     <div style={s.authWrap}>
@@ -1244,12 +1358,12 @@ function Onboarding({ usuario, onListo }) {
         {paso === 1 && (
           <div className="vs-fade">
             <h1 style={s.authTitle}>¿Estás tomando algún suplemento de Vita Selecta?</h1>
-            <p style={s.authSub}>Si querés, te acompañamos en el seguimiento para que aproveches al máximo tu producto. Podés saltar esto y cargarlo después.</p>
+            <p style={s.authSub}>Si querés, te acompañamos en el seguimiento para que aproveches al máximo tus productos. Podés saltar esto y cargarlos después.</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 18 }}>
               <button style={{ ...s.onbOpt, ...(tomaSuple === true ? s.onbOptOn : {}) }} onClick={() => { setTomaSuple(true); setPaso(2); }}>
-                <Leaf size={18} /> Sí, estoy tomando uno
+                <Leaf size={18} /> Sí, estoy tomando uno o varios
               </button>
-              <button style={{ ...s.onbOpt, ...(tomaSuple === false ? s.onbOptOn : {}) }} onClick={() => { setTomaSuple(false); finalizar(); }}>
+              <button style={{ ...s.onbOpt, ...(tomaSuple === false ? s.onbOptOn : {}) }} onClick={() => { setTomaSuple(false); onListo([]); }}>
                 Todavía no / prefiero saltar
               </button>
             </div>
@@ -1258,24 +1372,36 @@ function Onboarding({ usuario, onListo }) {
 
         {paso === 2 && (
           <div className="vs-fade">
-            <h1 style={s.authTitle}>¿Cuál tomás y hace cuánto?</h1>
-            <p style={s.authSub}>Elegí tu suplemento y cuándo lo empezaste.</p>
-            <label style={s.lbl}>Suplemento</label>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 14 }}>
-              {SUPLEMENTOS.map((sup) => (
-                <button key={sup.id} style={{ ...s.onbOpt, ...(supleId === sup.id ? s.onbOptOn : {}) }} onClick={() => setSupleId(sup.id)}>
-                  <span style={{ fontSize: 18 }}>{sup.emoji}</span> {sup.nombre}
-                  <span style={s.onbOptHint}>{sup.beneficio}</span>
-                </button>
-              ))}
+            <h1 style={s.authTitle}>¿Cuáles tomás y hace cuánto?</h1>
+            <p style={s.authSub}>Marcá todos los que estás tomando e indicá hace cuánto los empezaste.</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 14 }}>
+              {SUPLEMENTOS.map((sup) => {
+                const sel = seleccion.find((s) => s.id === sup.id);
+                return (
+                  <div key={sup.id} style={{ ...s.suplePick, ...(sel ? s.suplePickOn : {}) }}>
+                    <button style={s.suplePickHead} onClick={() => toggleSup(sup.id)}>
+                      <span style={{ ...s.restrCheck, ...(sel ? { background: C.salvia, borderColor: C.salvia } : {}) }}>
+                        {sel && <Check size={12} color={C.acentoTxt} />}
+                      </span>
+                      <span style={{ fontSize: 18, flexShrink: 0 }}>{sup.emoji}</span>
+                      <span style={{ display: "flex", flexDirection: "column", textAlign: "left", flex: 1, minWidth: 0 }}>
+                        <span style={{ fontWeight: 600, fontSize: 13.5, color: C.tinta }}>{sup.nombre}</span>
+                        <span style={{ fontSize: 11.5, color: C.gris }}>{sup.beneficio}</span>
+                      </span>
+                    </button>
+                    {sel && (
+                      <div style={s.suplePickHace}>
+                        <span style={{ fontSize: 11, color: C.gris, marginRight: 6 }}>¿Hace cuánto?</span>
+                        {OPC_HACE.map((o) => (
+                          <button key={o.v} style={{ ...s.segSm, ...(sel.hace === o.v ? s.segSmOn : {}) }} onClick={() => cambiarHace(sup.id, o.v)}>{o.l}</button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-            <label style={s.lbl}>¿Hace cuánto lo empezaste?</label>
-            <div style={s.segRow}>
-              {[["hoy", "Hoy"], ["semana", "Esta semana"], ["mes", "~Un mes"]].map(([v, l]) => (
-                <button key={v} style={{ ...s.seg, ...(hace === v ? s.segOn : {}) }} onClick={() => setHace(v)}>{l}</button>
-              ))}
-            </div>
-            <button style={{ ...s.crearBtn, opacity: (supleId && hace) ? 1 : 0.5, marginTop: 20 }} disabled={!(supleId && hace)} onClick={finalizar}>
+            <button style={{ ...s.crearBtn, opacity: seleccion.length > 0 ? 1 : 0.5, marginTop: 20 }} disabled={seleccion.length === 0} onClick={finalizar}>
               Listo, entrar a la app
             </button>
           </div>
@@ -1287,127 +1413,135 @@ function Onboarding({ usuario, onListo }) {
 
 /* ===================== SECCION: SUPLEMENTO ===================== */
 function SeccionSuplemento() {
-  const [respuestas, setRespuestas] = useState({}); // semana -> valor
+  const [respuestas, setRespuestas] = useState({}); // `${supId}:${semana}` -> valor
   const [eligiendo, setEligiendo] = useState(false);
-  const [supleActivo, setSupleActivo] = useState(null); // { id, inicio }
+  const [suplesActivos, setSuplesActivos] = useState([]); // array de { id, inicio, filaId }
   const [cargando, setCargando] = useState(true);
 
-  // Cargar el suplemento activo del usuario desde Supabase
-  useEffect(() => {
-    let activo = true;
-    (async () => {
-      const { data: sesion } = await supabase.auth.getUser();
-      const uid = sesion?.user?.id;
-      if (!uid) { setCargando(false); return; }
-      const { data } = await supabase.from("suplementos_usuario")
-        .select("*").eq("usuario_id", uid).eq("activo", true)
-        .order("creado_en", { ascending: false }).limit(1);
-      if (!activo) return;
-      if (data && data.length > 0) {
-        setSupleActivo({ id: data[0].suplemento_id, inicio: data[0].inicio, filaId: data[0].id });
-      }
-      setCargando(false);
-    })();
-    return () => { activo = false; };
-  }, []);
+  // Cargar todos los suplementos activos del usuario desde Supabase
+  const recargar = async () => {
+    const { data: sesion } = await supabase.auth.getUser();
+    const uid = sesion?.user?.id;
+    if (!uid) { setCargando(false); return; }
+    const { data } = await supabase.from("suplementos_usuario")
+      .select("*").eq("usuario_id", uid).eq("activo", true)
+      .order("creado_en", { ascending: false });
+    if (data) {
+      setSuplesActivos(data.map((d) => ({ id: d.suplemento_id, inicio: d.inicio, filaId: d.id })));
+    }
+    setCargando(false);
+  };
 
-  // Guardar (o cambiar) el suplemento activo en la base
-  const guardarSuple = async (id, dias) => {
+  useEffect(() => { recargar(); }, []);
+
+  // Guardar la nueva selección (lista de { id, hace } donde hace = "hoy", "1sem", etc.)
+  // Actualiza la base: marca inactivos los que ya no están, agrega los nuevos.
+  const guardarSeleccion = async (nuevos) => {
     const { data: sesion } = await supabase.auth.getUser();
     const uid = sesion?.user?.id;
     if (!uid) return;
-    // desactivar cualquier suplemento previo
-    await supabase.from("suplementos_usuario").update({ activo: false }).eq("usuario_id", uid).eq("activo", true);
-    // insertar el nuevo
-    const inicio = dayKey(addDays(-dias));
-    const { data } = await supabase.from("suplementos_usuario")
-      .insert({ usuario_id: uid, suplemento_id: id, inicio, activo: true }).select().single();
-    setSupleActivo({ id, inicio, filaId: data?.id });
-    setRespuestas({});
+    // 1. Desactivar los que estaban activos pero ya no están en la nueva selección
+    const idsNuevos = new Set(nuevos.map((n) => n.id));
+    const aDesactivar = suplesActivos.filter((s) => !idsNuevos.has(s.id));
+    for (const s of aDesactivar) {
+      await supabase.from("suplementos_usuario").update({ activo: false }).eq("id", s.filaId);
+    }
+    // 2. Insertar los nuevos (los que no estaban activos antes)
+    const idsViejos = new Set(suplesActivos.map((s) => s.id));
+    const aInsertar = nuevos.filter((n) => !idsViejos.has(n.id));
+    for (const n of aInsertar) {
+      const dias = n.hace === "hoy" ? 0 : n.hace === "1sem" ? 7 : n.hace === "2sem" ? 14 : n.hace === "1mes" ? 30 : 0;
+      const inicio = dayKey(addDays(-dias));
+      await supabase.from("suplementos_usuario")
+        .insert({ usuario_id: uid, suplemento_id: n.id, inicio, activo: true });
+    }
     setEligiendo(false);
+    await recargar();
   };
-
-  // Quitar el suplemento activo
-  const quitarSuple = async () => {
-    const { data: sesion } = await supabase.auth.getUser();
-    const uid = sesion?.user?.id;
-    if (uid) await supabase.from("suplementos_usuario").update({ activo: false }).eq("usuario_id", uid).eq("activo", true);
-    setSupleActivo(null);
-    setEligiendo(false);
-  };
-
-  const sup = supleActivo ? SUPLEMENTOS.find((x) => x.id === supleActivo.id) : null;
-  const diasTomando = supleActivo ? diffDays(supleActivo.inicio) : 0;
-  const semanaActual = Math.floor(diasTomando / 7) + 1;
-  const diasRestantes = sup ? sup.duracionDias - diasTomando : 0;
-  const porPct = sup ? Math.min(100, Math.round((diasTomando / sup.duracionDias) * 100)) : 0;
-  const seAcaba = sup && diasRestantes <= 5;
-
-  // etapa alcanzada mas reciente
-  const etapaActual = sup ? [...sup.etapas].reverse().find((e) => diasTomando >= e.dia) : null;
-  const respondioEstaSemana = respuestas[semanaActual] != null;
 
   if (cargando) {
     return <div className="vs-fade" style={{ padding: "40px 0", textAlign: "center", color: C.gris }}>Cargando…</div>;
   }
 
-  if (!sup) {
+  if (suplesActivos.length === 0) {
     return (
       <div className="vs-fade">
-        <div style={s.secTop}><h1 style={s.secTitle}>Mi suplemento</h1></div>
-        <p style={s.secSub}>Seguí tu suplemento de Vita Selecta y aprovechalo al máximo.</p>
+        <div style={s.secTop}><h1 style={s.secTitle}>Mis suplementos</h1></div>
+        <p style={s.secSub}>Seguí tus suplementos de Vita Selecta y aprovechalos al máximo.</p>
         <div style={s.empty}>
           Todavía no cargaste ningún suplemento.
           <div style={{ marginTop: 12 }}>
-            <button style={s.crearBtnSm} onClick={() => setEligiendo(true)}>Cargar mi suplemento</button>
+            <button style={s.crearBtnSm} onClick={() => setEligiendo(true)}>Cargar mis suplementos</button>
           </div>
         </div>
-        {eligiendo && <ElegirSuple onClose={() => setEligiendo(false)} onElegir={(id, dias) => guardarSuple(id, dias)} />}
+        {eligiendo && <ElegirSuples actuales={[]} onClose={() => setEligiendo(false)} onGuardar={guardarSeleccion} />}
       </div>
     );
   }
 
   return (
     <div className="vs-fade">
-      <div style={s.secTop}><h1 style={s.secTitle}>Mi suplemento</h1>
+      <div style={s.secTop}><h1 style={s.secTitle}>Mis suplementos</h1>
         <button style={s.iconBtnSm} onClick={() => setEligiendo(true)}><Settings size={18} /></button>
       </div>
+      <p style={s.secSub}>{suplesActivos.length === 1 ? "Estás tomando 1 suplemento." : `Estás tomando ${suplesActivos.length} suplementos.`}</p>
 
-      {/* Tarjeta producto */}
-      <div style={s.supHero}>
-        <div style={s.supHeroTop}>
-          <span style={{ fontSize: 34 }}>{sup.emoji}</span>
-          <div style={{ flex: 1 }}>
-            <div style={s.supNombre}>{sup.nombre}</div>
-            <div style={s.supBenef}>{sup.beneficio}</div>
-          </div>
-        </div>
-        <div style={s.supProgWrap}>
-          <div style={s.supProgBar}><div style={{ ...s.supProgFill, width: porPct + "%" }} /></div>
-          <div style={s.supProgLbl}><span>Día {diasTomando} de {sup.duracionDias}</span><span>{diasRestantes > 0 ? `${diasRestantes} días restantes` : "frasco terminado"}</span></div>
-        </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        {suplesActivos.map((act) => (
+          <SupleCard key={act.filaId} act={act} respuestas={respuestas} setRespuestas={setRespuestas} />
+        ))}
       </div>
 
-      {/* Etapa actual (lo que deberia estar sintiendo segun la web) */}
+      {eligiendo && <ElegirSuples actuales={suplesActivos.map((s) => s.id)} onClose={() => setEligiendo(false)} onGuardar={guardarSeleccion} />}
+    </div>
+  );
+}
+
+// Tarjeta individual de un suplemento activo
+function SupleCard({ act, respuestas, setRespuestas }) {
+  const sup = SUPLEMENTOS.find((x) => x.id === act.id);
+  if (!sup) return null;
+  const diasTomando = diffDays(act.inicio);
+  const semanaActual = Math.floor(diasTomando / 7) + 1;
+  const diasRestantes = sup.duracionDias - diasTomando;
+  const porPct = Math.min(100, Math.round((diasTomando / sup.duracionDias) * 100));
+  const seAcaba = diasRestantes <= 5;
+  const etapaActual = [...sup.etapas].reverse().find((e) => diasTomando >= e.dia);
+  const claveResp = `${act.id}:${semanaActual}`;
+  const respondio = respuestas[claveResp] != null;
+
+  return (
+    <div style={s.supHero}>
+      <div style={s.supHeroTop}>
+        <span style={{ fontSize: 30 }}>{sup.emoji}</span>
+        <div style={{ flex: 1 }}>
+          <div style={s.supNombre}>{sup.nombre}</div>
+          <div style={s.supBenef}>{sup.beneficio}</div>
+        </div>
+      </div>
+      <div style={s.supProgWrap}>
+        <div style={s.supProgBar}><div style={{ ...s.supProgFill, width: porPct + "%" }} /></div>
+        <div style={s.supProgLbl}><span>Día {diasTomando} de {sup.duracionDias}</span><span>{diasRestantes > 0 ? `${diasRestantes} días restantes` : "frasco terminado"}</span></div>
+      </div>
+
       {etapaActual && (
-        <div style={s.supEtapa}>
-          <Sparkles size={15} color={C.terra} />
+        <div style={s.supEtapaInline}>
+          <Sparkles size={13} color={C.terra} style={{ flexShrink: 0 }} />
           <span>{etapaActual.texto}</span>
         </div>
       )}
 
-      {/* Check semanal */}
       {!seAcaba && (
-        <div style={s.supCheck}>
-          <div style={s.supCheckTitle}>Tu chequeo de la semana {semanaActual}</div>
-          <div style={s.supCheckQ}>{sup.preguntaSemanal}</div>
-          {respondioEstaSemana ? (
-            <div style={s.supCheckDone}><Check size={15} /> ¡Gracias! Registramos cómo venís. Nos vemos la semana que viene.</div>
+        <div style={s.supCheckInline}>
+          <div style={s.supCheckTitleSm}>Chequeo · Semana {semanaActual}</div>
+          <div style={s.supCheckQSm}>{sup.preguntaSemanal}</div>
+          {respondio ? (
+            <div style={s.supCheckDoneSm}><Check size={13} /> Registrado. Nos vemos la semana que viene.</div>
           ) : (
             <div style={s.supRespRow}>
               {RESP_SEMANAL.map((r) => (
-                <button key={r.v} style={s.supRespBtn} onClick={() => setRespuestas((p) => ({ ...p, [semanaActual]: r.v }))}>
-                  <span style={{ fontSize: 22 }}>{r.emoji}</span>
+                <button key={r.v} style={s.supRespBtn} onClick={() => setRespuestas((p) => ({ ...p, [claveResp]: r.v }))}>
+                  <span style={{ fontSize: 18 }}>{r.emoji}</span>
                   <span style={s.supRespLbl}>{r.label}</span>
                 </button>
               ))}
@@ -1416,66 +1550,83 @@ function SeccionSuplemento() {
         </div>
       )}
 
-      {/* Aviso de recompra */}
       {seAcaba && (
-        <div style={s.supRecompra}>
-          <div style={s.supRecompraTitle}><ShoppingBag size={17} /> Se te está por terminar</div>
-          <p style={s.supRecompraTxt}>
+        <div style={s.supRecompraInline}>
+          <div style={s.supRecompraTitleSm}><ShoppingBag size={15} /> Se te está por terminar</div>
+          <p style={s.supRecompraTxtSm}>
             {diasRestantes > 0
-              ? `Te quedan unos ${diasRestantes} días de ${sup.nombre}. Para no cortar tu progreso, reponé tu frasco a tiempo.`
-              : `Tu frasco de ${sup.nombre} se terminó. Si venís notando los cambios, seguí la racha reponiéndolo.`}
+              ? `Te quedan ${diasRestantes} día${diasRestantes === 1 ? "" : "s"} de ${sup.nombre}. Reponé a tiempo.`
+              : `Tu frasco de ${sup.nombre} se terminó. Reponelo para no cortar tu progreso.`}
           </p>
-          <a href="https://vitaselecta.com" target="_blank" rel="noopener noreferrer" style={s.supRecompraBtn}>
-            Reponer mi {sup.nombre} <ChevronRight size={16} />
+          <a href="https://vitaselecta.com" target="_blank" rel="noopener noreferrer" style={s.supRecompraBtnSm}>
+            Reponer <ChevronRight size={14} />
           </a>
         </div>
       )}
-
-      {/* Historial de respuestas (demo) */}
-      {Object.keys(respuestas).length > 0 && (
-        <div style={{ marginTop: 22 }}>
-          <span style={s.subTitle}>Cómo venís sintiéndote</span>
-          <div style={s.supHist}>
-            {Object.entries(respuestas).sort((a, b) => a[0] - b[0]).map(([sem, val]) => {
-              const r = RESP_SEMANAL.find((x) => x.v === val);
-              return <div key={sem} style={s.supHistRow}><span>Semana {sem}</span><span>{r?.emoji} {r?.label}</span></div>;
-            })}
-          </div>
-        </div>
-      )}
-
-      {eligiendo && <ElegirSuple actual={sup.id} onClose={() => setEligiendo(false)} onElegir={(id, dias) => guardarSuple(id, dias)} onQuitar={quitarSuple} />}
     </div>
   );
 }
 
-function ElegirSuple({ actual, onClose, onElegir, onQuitar }) {
-  const [id, setId] = useState(actual || null);
-  const [hace, setHace] = useState("hoy");
+// Modal para elegir múltiples suplementos
+function ElegirSuples({ actuales, onClose, onGuardar }) {
+  // actuales = array de IDs ya activos
+  // Cada item del state: { id, hace }. Los que ya estaban activos vienen sin "hace" (no se cambia su fecha).
+  const [seleccion, setSeleccion] = useState(() => actuales.map((id) => ({ id, hace: null })));
+
+  const toggle = (id) => {
+    const yaEsta = seleccion.find((s) => s.id === id);
+    if (yaEsta) {
+      setSeleccion(seleccion.filter((s) => s.id !== id));
+    } else {
+      setSeleccion([...seleccion, { id, hace: "hoy" }]);
+    }
+  };
+
+  const cambiarHace = (id, hace) => {
+    setSeleccion(seleccion.map((s) => s.id === id ? { ...s, hace } : s));
+  };
+
+  const OPC_HACE = [
+    { v: "hoy", l: "Hoy" },
+    { v: "1sem", l: "1 sem" },
+    { v: "2sem", l: "2 sem" },
+    { v: "1mes", l: "1 mes" },
+  ];
+
   return (
     <div style={s.modalBg} onClick={onClose}>
-      <div style={s.modal} onClick={(e) => e.stopPropagation()}>
-        <div style={s.modalHead}><b style={s.modalTitle}>Mi suplemento</b><button style={s.iconBtn} onClick={onClose}><X size={20} /></button></div>
-        <label style={s.lbl}>¿Cuál estás tomando?</label>
-        <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 14 }}>
-          {SUPLEMENTOS.map((sup) => (
-            <button key={sup.id} style={{ ...s.onbOpt, ...(id === sup.id ? s.onbOptOn : {}) }} onClick={() => setId(sup.id)}>
-              <span style={{ fontSize: 18 }}>{sup.emoji}</span> {sup.nombre}
-              <span style={s.onbOptHint}>{sup.beneficio}</span>
-            </button>
-          ))}
+      <div style={{ ...s.modal, maxHeight: "85vh", overflowY: "auto" }} onClick={(e) => e.stopPropagation()}>
+        <div style={s.modalHead}><b style={s.modalTitle}>Mis suplementos</b><button style={s.iconBtn} onClick={onClose}><X size={20} /></button></div>
+        <p style={s.modalSub}>Marcá todos los que estás tomando. Para los nuevos, indicá hace cuánto los empezaste.</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 8 }}>
+          {SUPLEMENTOS.map((sup) => {
+            const sel = seleccion.find((s) => s.id === sup.id);
+            const esNuevo = sel && !actuales.includes(sup.id);
+            return (
+              <div key={sup.id} style={{ ...s.suplePick, ...(sel ? s.suplePickOn : {}) }}>
+                <button style={s.suplePickHead} onClick={() => toggle(sup.id)}>
+                  <span style={{ ...s.restrCheck, ...(sel ? { background: C.salvia, borderColor: C.salvia } : {}) }}>
+                    {sel && <Check size={12} color={C.acentoTxt} />}
+                  </span>
+                  <span style={{ fontSize: 18, flexShrink: 0 }}>{sup.emoji}</span>
+                  <span style={{ display: "flex", flexDirection: "column", textAlign: "left", flex: 1, minWidth: 0 }}>
+                    <span style={{ fontWeight: 600, fontSize: 13.5, color: C.tinta }}>{sup.nombre}</span>
+                    <span style={{ fontSize: 11.5, color: C.gris }}>{sup.beneficio}</span>
+                  </span>
+                </button>
+                {esNuevo && (
+                  <div style={s.suplePickHace}>
+                    <span style={{ fontSize: 11, color: C.gris, marginRight: 6 }}>¿Hace cuánto?</span>
+                    {OPC_HACE.map((o) => (
+                      <button key={o.v} style={{ ...s.segSm, ...(sel.hace === o.v ? s.segSmOn : {}) }} onClick={() => cambiarHace(sup.id, o.v)}>{o.l}</button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-        <label style={s.lbl}>¿Hace cuánto?</label>
-        <div style={s.segRow}>
-          {[["hoy", "Hoy", 0], ["semana", "Esta semana", 7], ["mes", "~Un mes", 25]].map(([v, l]) => (
-            <button key={v} style={{ ...s.seg, ...(hace === v ? s.segOn : {}) }} onClick={() => setHace(v)}>{l}</button>
-          ))}
-        </div>
-        <button style={{ ...s.crearBtn, opacity: id ? 1 : 0.5, marginTop: 18 }} disabled={!id}
-          onClick={() => { const dias = hace === "hoy" ? 0 : hace === "semana" ? 7 : 25; onElegir(id, dias); }}>
-          Guardar
-        </button>
-        {onQuitar && <button style={s.supQuitar} onClick={onQuitar}>Ya no lo estoy tomando</button>}
+        <button style={{ ...s.crearBtnSm, width: "100%", marginTop: 14 }} onClick={() => onGuardar(seleccion)}>Guardar</button>
       </div>
     </div>
   );
@@ -2579,6 +2730,23 @@ const s = {
   supHist: { display: "flex", flexDirection: "column", gap: 7, marginTop: 12 },
   supHistRow: { display: "flex", justifyContent: "space-between", fontSize: 13.5, color: C.tinta, background: C.card, border: `1px solid ${C.borde}`, borderRadius: 11, padding: "10px 14px" },
   supQuitar: { width: "100%", marginTop: 10, padding: 11, background: "none", border: "none", color: C.grisL, fontSize: 13, cursor: "pointer", textDecoration: "underline", fontFamily: SANS },
+
+  // Versiones inline (compactas) usadas dentro de SupleCard (cuando hay varios)
+  supEtapaInline: { display: "flex", alignItems: "flex-start", gap: 7, background: C.terraL, color: C.terraD, borderRadius: 10, padding: "9px 12px", marginTop: 10, fontSize: 12, lineHeight: 1.4 },
+  supCheckInline: { background: C.cardAlt, borderRadius: 12, padding: "11px 13px", marginTop: 10 },
+  supCheckTitleSm: { fontSize: 10.5, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", color: C.salviaD },
+  supCheckQSm: { fontSize: 13, color: C.tinta, marginTop: 5, marginBottom: 9, lineHeight: 1.3 },
+  supCheckDoneSm: { display: "flex", alignItems: "center", gap: 6, color: C.salviaD, fontSize: 12, padding: "6px 0", lineHeight: 1.4 },
+  supRecompraInline: { background: C.terraL, border: `1px solid ${C.terra}`, borderRadius: 12, padding: "11px 13px", marginTop: 10 },
+  supRecompraTitleSm: { display: "flex", alignItems: "center", gap: 7, fontSize: 13, fontWeight: 700, color: C.terraD },
+  supRecompraTxtSm: { fontSize: 12, color: C.terraD, lineHeight: 1.45, margin: "6px 0 10px" },
+  supRecompraBtnSm: { display: "inline-flex", alignItems: "center", gap: 5, padding: "8px 14px", background: C.terra, color: "#241813", borderRadius: 9, fontSize: 12.5, fontWeight: 700, textDecoration: "none", fontFamily: SANS },
+
+  // Modal ElegirSuples (multiselección)
+  suplePick: { background: C.card, border: `1.5px solid ${C.borde}`, borderRadius: 12, overflow: "hidden" },
+  suplePickOn: { borderColor: C.salvia, background: C.salviaBg },
+  suplePickHead: { width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "none", border: "none", cursor: "pointer", textAlign: "left", fontFamily: SANS },
+  suplePickHace: { display: "flex", alignItems: "center", gap: 5, padding: "0 12px 10px 40px", flexWrap: "wrap" },
 
   /* jardin poblado */
   gardenHead: { display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 },
