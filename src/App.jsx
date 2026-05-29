@@ -2306,13 +2306,13 @@ const s = {
   gardenStat: { fontSize: 13, fontWeight: 700, color: C.salviaD },
   gardenLegend: { fontSize: 11.5, color: C.grisL },
 
-  filtLbl: { display: "block", fontSize: 11.5, fontWeight: 700, color: C.gris, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8, marginTop: 4 },
-  objRow: { display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 },
+  filtLbl: { display: "block", fontSize: 11.5, fontWeight: 700, color: C.gris, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8, marginTop: 4, textAlign: "center" },
+  objRow: { display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16, justifyContent: "center" },
   objBtn: { padding: "9px 15px", borderRadius: 22, border: `1.5px solid ${C.borde}`, background: C.card, color: C.salviaD, fontSize: 13.5, fontWeight: 600, cursor: "pointer", fontFamily: SANS },
   objBtnOn: { background: C.salvia, color: C.acentoTxt, borderColor: C.salvia },
-  filtRow: { display: "flex", gap: 18, flexWrap: "wrap", marginBottom: 18 },
+  filtRow: { display: "flex", gap: 18, flexWrap: "wrap", marginBottom: 18, justifyContent: "center" },
   filtGroup: { flex: 1, minWidth: 200 },
-  segRowSm: { display: "flex", gap: 6, flexWrap: "wrap" },
+  segRowSm: { display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "center" },
   segSm: { padding: "8px 12px", borderRadius: 10, border: `1.5px solid ${C.borde}`, background: C.card, color: C.salviaD, fontSize: 12.5, fontWeight: 600, cursor: "pointer", fontFamily: SANS },
   segSmOn: { background: C.salvia, color: C.acentoTxt, borderColor: C.salvia },
 
