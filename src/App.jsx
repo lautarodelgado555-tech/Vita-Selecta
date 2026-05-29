@@ -42,6 +42,17 @@ const C = {
   acentoTxt: "var(--acentoTxt)", // color de texto sobre acentos (antes hardcodeado #1a221a)
 };
 
+// Frases motivadoras según el día de la semana (0=domingo, 1=lunes, ..., 6=sábado)
+const FRASES_DIA = [
+  "Volvé al centro: respirá, comé bien, dormí",                     // domingo
+  "Empezá la semana plantando una buena costumbre 🌱",              // lunes
+  "La constancia es el camino más corto al cambio",                 // martes
+  "Cuidarte hoy es regalarte mañanas mejores",                      // miércoles
+  "Cada pequeño hábito suma. Seguí firme",                          // jueves
+  "El esfuerzo de la semana ya está dando frutos",                  // viernes
+  "Descansar también es cuidarte",                                  // sábado
+];
+
 // Las dos paletas. "claro" = Verde y miel, "oscuro" = Botánica nocturna.
 const TEMAS = {
   oscuro: {
@@ -1060,6 +1071,7 @@ function AppPrincipal({ usuario, onSalir, modoTema, setModoTema }) {
   return (
     <div style={s.app}>
       <style>{CSS}</style>
+      <div style={s.fraseDia}>{FRASES_DIA[new Date().getDay()]}</div>
       <header style={s.header}>
         <LogoVitaSelecta height={130} />
         <span style={s.appName} className="vs-app-name">Vita Plus</span>
@@ -2378,6 +2390,7 @@ const s = {
   creditoFooter: { textAlign: "center", fontSize: 11.5, color: C.grisL, marginTop: 18, letterSpacing: 0.3 },
   creditoNav: { position: "fixed", bottom: 0, left: 0, right: 0, textAlign: "center", fontSize: 10.5, color: C.grisL, padding: "6px 8px", background: C.card, borderTop: `1px solid ${C.borde}`, zIndex: 19, letterSpacing: 0.3 },
   creditoLink: { color: C.salviaD, textDecoration: "none", fontWeight: 600 },
+  fraseDia: { background: "#f4c430", color: "#3a2f0a", textAlign: "center", padding: "7px 16px", fontSize: 12.5, fontWeight: 600, letterSpacing: 0.3, lineHeight: 1.4 },
   header: { display: "flex", justifyContent: "flex-start", alignItems: "center", padding: "12px 20px", borderBottom: `1px solid ${C.borde}`, background: C.card, position: "sticky", top: 0, zIndex: 10 },
   appName: { marginLeft: 18, fontFamily: SERIF, fontSize: 28, color: C.tinta, letterSpacing: 1.5 },
   appSep: { width: 1, height: 24, background: C.borde, marginLeft: 14 },
