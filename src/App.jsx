@@ -949,7 +949,7 @@ function LogoVitaSelecta({ height = 90 }) {
     return () => window.removeEventListener("vita-tema-cambio", handler);
   }, []);
   const src = esOscuro ? "/logo-blanco.png" : "/logo-negro.png";
-  return <img src={src} alt="Vita Selecta" style={{ height, width: "auto", display: "block" }} />;
+  return <img src={src} alt="Vita Selecta" className="vs-logo" style={{ height, width: "auto", display: "block" }} />;
 }
 
 // Devuelve true si el color hex es oscuro (luminancia baja).
@@ -1054,9 +1054,9 @@ function AppPrincipal({ usuario, onSalir, modoTema, setModoTema }) {
       <style>{CSS}</style>
       <header style={s.header}>
         <LogoVitaSelecta height={130} />
-        <span style={s.appName}>Vita Plus</span>
-        <div style={s.appSep}></div>
-        <span style={s.appTag}>El hábito de cuidarte</span>
+        <span style={s.appName} className="vs-app-name">Vita Plus</span>
+        <div style={s.appSep} className="vs-app-sep"></div>
+        <span style={s.appTag} className="vs-app-tag">El hábito de cuidarte</span>
         <div style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
           <button style={s.salirBtn} onClick={() => setTemaModal(true)} title="Cambiar tema"><Palette size={18} /></button>
           <button style={s.salirBtn} onClick={onSalir} title="Volver al inicio (demo)"><X size={18} /></button>
@@ -2214,6 +2214,18 @@ const CSS = `
 .vs-fade { animation: vsf .35s ease; }
 @keyframes vsf { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: none;} }
 @media (max-width: 720px) { .vs-topgrid { grid-template-columns: 1fr !important; } .vs-sidecol { grid-template-columns: 1fr 1fr !important; } }
+
+/* Header responsive: en celular achicamos el logo, el nombre, y ocultamos el subtitulo */
+@media (max-width: 720px) {
+  .vs-logo { height: 56px !important; }
+  .vs-app-name { font-size: 20px !important; margin-left: 10px !important; letter-spacing: 0.5px !important; }
+  .vs-app-sep { display: none !important; }
+  .vs-app-tag { display: none !important; }
+}
+@media (max-width: 480px) {
+  .vs-logo { height: 44px !important; }
+  .vs-app-name { font-size: 17px !important; margin-left: 8px !important; }
+}
 
 /* --- animaciones del jardin (suaves) --- */
 .g-planta { transform-box: fill-box; transform-origin: bottom center; animation: gsway 5s ease-in-out infinite; }
