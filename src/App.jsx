@@ -42,41 +42,41 @@ const C = {
   acentoTxt: "var(--acentoTxt)", // color de texto sobre acentos (antes hardcodeado #1a221a)
 };
 
-// Las dos paletas. "claro" = Amanecer cálido, "oscuro" = Noche violeta.
+// Las dos paletas. "claro" = Verde y miel, "oscuro" = Botánica nocturna.
 const TEMAS = {
   oscuro: {
-    bg: "#15121f",        // fondo general (noche violeta)
-    card: "#1e1a2b",      // superficies / tarjetas
-    cardAlt: "#262136",   // superficie un escalon mas clara
-    salvia: "#9d7fc7",    // acento principal (violeta luminoso)
-    salviaD: "#bda3df",   // acento claro para textos sobre oscuro
-    salviaL: "#2f2545",   // acento apagado para fondos sutiles
-    salviaBg: "#262136",  // fondo de acento muy sutil
-    terra: "#e7a3c4",     // acento secundario (rosa)
-    terraD: "#f0bcd6",    // acento secundario claro para textos
-    terraL: "#3a2433",    // acento secundario apagado para fondos
-    tinta: "#f2eef8",     // texto principal
-    gris: "#9b91ab",      // texto secundario
-    grisL: "#6b6480",     // texto terciario
-    borde: "#332b47",     // bordes
-    acentoTxt: "#15121f", // texto sobre acentos (= bg oscuro)
+    bg: "#10160f",        // fondo general (verde-negro)
+    card: "#1a221a",      // superficies / tarjetas
+    cardAlt: "#222c21",   // superficie un escalon mas clara
+    salvia: "#8fae84",    // acento verde principal
+    salviaD: "#a9c39f",   // verde claro para textos/acentos
+    salviaL: "#2c3a2a",   // verde apagado para fondos sutiles
+    salviaBg: "#222c21",  // fondo verde muy sutil
+    terra: "#e08a63",     // terracota acento
+    terraD: "#f0a884",    // terracota claro para textos
+    terraL: "#3a2820",    // terracota apagado para fondos sutiles
+    tinta: "#f1f4ed",     // texto principal (crema clara)
+    gris: "#9aa692",      // texto secundario
+    grisL: "#6b7665",     // texto terciario
+    borde: "#2c3829",     // bordes
+    acentoTxt: "#10160f", // texto sobre acentos
   },
   claro: {
-    bg: "#fbf6ef",        // fondo general (amanecer cálido)
+    bg: "#fbf7ee",        // fondo general (crema cálido)
     card: "#ffffff",      // superficies / tarjetas
-    cardAlt: "#f5ece0",   // superficie un escalon distinta
-    salvia: "#e8843c",    // acento principal (terracota cálido)
-    salviaD: "#c2703e",   // acento para textos sobre claro
-    salviaL: "#fbe6d4",   // acento apagado para fondos sutiles
-    salviaBg: "#fdf0e3",  // fondo de acento muy sutil
-    terra: "#f5a623",     // acento secundario (dorado)
-    terraD: "#b9791a",    // acento secundario para textos
-    terraL: "#fdf0d8",    // acento secundario apagado para fondos
-    tinta: "#3d2b1f",     // texto principal (marrón oscuro)
-    gris: "#9c8975",      // texto secundario
-    grisL: "#bfae99",     // texto terciario
-    borde: "#ecdcc8",     // bordes
-    acentoTxt: "#ffffff", // texto sobre acentos (blanco)
+    cardAlt: "#f3ecdc",   // superficie un escalon distinta
+    salvia: "#5c8a3f",    // acento verde principal (verde bosque vivo)
+    salviaD: "#4a6b3a",   // verde más oscuro para textos
+    salviaL: "#e6f0d8",   // verde apagado para fondos sutiles
+    salviaBg: "#f0f7e4",  // fondo verde muy sutil
+    terra: "#e8a73a",     // acento secundario (miel/dorado)
+    terraD: "#c48a2b",    // miel oscuro para textos
+    terraL: "#fdeecf",    // miel apagado para fondos
+    tinta: "#2a3a22",     // texto principal (verde oscuro)
+    gris: "#6f7e63",      // texto secundario
+    grisL: "#a9b29c",     // texto terciario
+    borde: "#e6dcc4",     // bordes
+    acentoTxt: "#ffffff", // texto sobre acentos
   },
 };
 
